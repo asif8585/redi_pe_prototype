@@ -10,9 +10,9 @@ class all_cart_cards extends StatefulWidget {
 }
 
 class _all_cart_cardsState extends State<all_cart_cards> {
+  int _itemCount = 0;
   @override
   Widget build(BuildContext context) {
-    int _itemCount = 0;
     return Column(
       children: [
         Column(

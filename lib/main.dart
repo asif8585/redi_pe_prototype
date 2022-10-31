@@ -21,27 +21,44 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.deepPurple.shade400,
-          title: Text(
-            "RediPe",
-            style: GoogleFonts.aBeeZee(
-                fontSize: 23, fontWeight: FontWeight.w600, letterSpacing: 1),
-          ),
-          leading: const Icon(Icons.logo_dev),
-          actions: [
-            InkWell(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Icon(Icons.shopping_cart),
-              ),
-              onTap: () {},
-            ),
-          ],
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple.shade400,
+        title: Text(
+          "RediPe",
+          style: GoogleFonts.aBeeZee(
+              fontSize: 23, fontWeight: FontWeight.w600, letterSpacing: 1),
         ),
-        body: all_cart_cards(),
+        leading: const Icon(Icons.logo_dev),
+        actions: [
+          GestureDetector(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Icon(Icons.shopping_cart),
+            ),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Cart_Page()));
+            },
+          ),
+        ],
       ),
+      body: all_cart_cards(),
     );
   }
 }
