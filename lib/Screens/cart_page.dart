@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:redi_pe_prototype/Screens/cart_item_listTile.dart';
-import 'package:redi_pe_prototype/all_cart_card.dart';
+import 'package:redi_pe_prototype/Screens/cart_ka_item_card.dart';
+import 'package:redi_pe_prototype/item_card.dart';
 import 'package:redi_pe_prototype/scrollable_sheet.dart';
 
 class Cart_Page extends StatefulWidget {
@@ -15,60 +15,78 @@ class Cart_Page extends StatefulWidget {
 }
 
 class _Cart_PageState extends State<Cart_Page> {
-  int _itemCount = 0;
   @override
   Widget build(BuildContext context) {
     double text_item_quantity = 1;
-    return Scaffold(
-      body: Center(child: Text("Hello")),
-      // body: Column(
-      //   children: [
-      //     Center(
-      //       child: Padding(
-      //         padding: const EdgeInsets.all(15.0),
-      //         child: CircleAvatar(
-      //           backgroundColor: Colors.blueGrey,
-      //           radius: 42,
-      //           child: CircleAvatar(
-      //             backgroundColor: Colors.white,
-      //             backgroundImage: NetworkImage(
-      //                 "https://i.pinimg.com/originals/5a/ae/50/5aae503e4f037a5a4375944d8861fb6a.png"),
-      //             radius: 40,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //     Text(
-      //       "Buisness Name",
-      //       style:
-      //           GoogleFonts.anybody(fontSize: 17, fontWeight: FontWeight.w600),
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.all(8.0),
-      //       child: Text(
-      //         "Customer Can Order Any Time Anywhere",
-      //         style: GoogleFonts.ubuntu(),
-      //       ),
-      //     ),
-      //     Divider(
-      //       thickness: 0.8,
-      //       color: Colors.deepPurpleAccent,
-      //       endIndent: 20,
-      //       indent: 20,
-      //     ),
-      //     Text(
-      //       "Cart(Total Items : 4)",
-      //       style:
-      //           GoogleFonts.aBeeZee(fontSize: 14, fontWeight: FontWeight.w600),
-      //     ),
+    return Scaffold(body: my_cart());
+  }
+}
 
-      //     ///// cart listview.builder code
+class my_cart extends StatelessWidget {
+  String? total_items = "4";
+  String? redi_ka_name = "Redi Name";
 
-      //     Text_btn_item_listTile(),
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Center(
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.green,
+              radius: 46,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage(
+                    "https://www.pngitem.com/pimgs/m/127-1271967_food-cart-indian-street-food-cart-hd-png.png"),
+                radius: 43,
+              ),
+            ),
+          ),
+        ),
+        Text(
+          redi_ka_name!,
+          style: GoogleFonts.aBeeZee(
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
+              color: Color.fromRGBO(15, 40, 48, 8)),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Customer Can Order Any Time Anywhere",
+            style: GoogleFonts.aBeeZee(),
+          ),
+        ),
+        const Divider(
+          thickness: 0.8,
+          color: Colors.deepPurpleAccent,
+          endIndent: 20,
+          indent: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Total Itmes :",
+              style: GoogleFonts.aBeeZee(
+                  fontSize: 14, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Text(
+              total_items!,
+              style: GoogleFonts.aBeeZee(fontSize: 20),
+            )
+          ],
+        ),
 
-      //     Scroll_Sheet(),
-      //   ],
-      // ),
+        //other page of list tile added here
+
+        cart_ka_item_card()
+      ],
     );
   }
 }

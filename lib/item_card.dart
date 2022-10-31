@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:redi_pe_prototype/Screens/cart_page.dart';
 
-class all_cart_cards extends StatefulWidget {
-  const all_cart_cards({Key? key}) : super(key: key);
+class item_card extends StatefulWidget {
+  const item_card({Key? key}) : super(key: key);
 
   @override
-  State<all_cart_cards> createState() => _all_cart_cardsState();
+  State<item_card> createState() => _item_cardState();
 }
 
-class _all_cart_cardsState extends State<all_cart_cards> {
+class _item_cardState extends State<item_card> {
   int _itemCount = 0;
   @override
   Widget build(BuildContext context) {
@@ -48,22 +48,35 @@ class _all_cart_cardsState extends State<all_cart_cards> {
                         ),
                       ],
                     ),
+
                     // increment decremernt btn
+                    //
+
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.delete),
+                    ),
+
                     Card(
-                      color: Color.fromARGB(255, 239, 237, 245),
+                      // color: Color.fromARGB(255, 239, 237, 245),
                       elevation: 10,
                       child: Row(
                         children: <Widget>[
-                          _itemCount != 0
-                              ? new IconButton(
-                                  icon: new Icon(Icons.remove),
-                                  onPressed: () => setState(() => _itemCount--),
-                                )
-                              : new Container(),
+                          IconButton(
+                            onPressed: () {
+                              if (_itemCount != 0) {
+                                setState(() {
+                                  _itemCount--;
+                                });
+                              }
+                            },
+                            icon: Icon(Icons.remove),
+                          ),
                           Text(_itemCount.toString()),
                           IconButton(
-                              icon: new Icon(Icons.add),
-                              onPressed: () => setState(() => _itemCount++))
+                            icon: new Icon(Icons.add),
+                            onPressed: () => setState(() => _itemCount++),
+                          ),
                         ],
                       ),
                     ),

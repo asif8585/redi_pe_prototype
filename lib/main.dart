@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:redi_pe_prototype/Screens/cart_page.dart';
 import 'package:redi_pe_prototype/Screens/homeScreen.dart';
-import 'package:redi_pe_prototype/all_cart_card.dart';
+import 'package:redi_pe_prototype/item_card.dart';
 import 'package:redi_pe_prototype/scrollable_sheet.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightGreen,
       ),
       home: HomeScreen(),
     );
@@ -38,18 +38,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple.shade400,
+        // backgroundColor:,
         title: Text(
           "RediPe",
-          style: GoogleFonts.aBeeZee(
-              fontSize: 23, fontWeight: FontWeight.w600, letterSpacing: 1),
+          style: GoogleFonts.pacifico(
+              fontSize: 23,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1,
+              color: Color.fromARGB(255, 63, 61, 61)),
         ),
-        leading: const Icon(Icons.logo_dev),
+        leading: CircleAvatar(
+          child: Image.asset("assets/images/avatar.png"),
+        ),
         actions: [
           GestureDetector(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Icon(Icons.shopping_cart),
+              child: Icon(
+                Icons.shopping_cart,
+                color: Color.fromARGB(255, 63, 61, 61),
+              ),
             ),
             onTap: () {
               Navigator.push(context,
@@ -58,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: all_cart_cards(),
+      body: Cart_Page(),
     );
   }
 }
