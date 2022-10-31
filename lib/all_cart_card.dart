@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:redi_pe_prototype/Screens/cart_page.dart';
 
-class all_cart_cards extends StatelessWidget {
+class all_cart_cards extends StatefulWidget {
   const all_cart_cards({Key? key}) : super(key: key);
 
   @override
+  State<all_cart_cards> createState() => _all_cart_cardsState();
+}
+
+class _all_cart_cardsState extends State<all_cart_cards> {
+  @override
   Widget build(BuildContext context) {
+    int _itemCount = 0;
     return Column(
       children: [
         Column(
@@ -47,19 +53,17 @@ class all_cart_cards extends StatelessWidget {
                       color: Color.fromARGB(255, 239, 237, 245),
                       elevation: 10,
                       child: Row(
-                        children: [
+                        children: <Widget>[
+                          _itemCount != 0
+                              ? new IconButton(
+                                  icon: new Icon(Icons.remove),
+                                  onPressed: () => setState(() => _itemCount--),
+                                )
+                              : new Container(),
+                          Text(_itemCount.toString()),
                           IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.delete),
-                          ),
-                          Text(
-                            "23",
-                            style: GoogleFonts.bonaNova(fontSize: 18),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.add),
-                          ),
+                              icon: new Icon(Icons.add),
+                              onPressed: () => setState(() => _itemCount++))
                         ],
                       ),
                     ),

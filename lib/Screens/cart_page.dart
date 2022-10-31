@@ -3,13 +3,22 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:redi_pe_prototype/Screens/cart_item_listTile.dart';
 import 'package:redi_pe_prototype/all_cart_card.dart';
+import 'package:redi_pe_prototype/scrollable_sheet.dart';
 
-class Cart_Page extends StatelessWidget {
+class Cart_Page extends StatefulWidget {
   const Cart_Page({Key? key}) : super(key: key);
 
   @override
+  State<Cart_Page> createState() => _Cart_PageState();
+}
+
+class _Cart_PageState extends State<Cart_Page> {
+  int _itemCount = 0;
+  @override
   Widget build(BuildContext context) {
+    double text_item_quantity = 1;
     return Column(
       children: [
         Center(
@@ -48,18 +57,12 @@ class Cart_Page extends StatelessWidget {
           "Cart(Total Items : 4)",
           style: GoogleFonts.aBeeZee(fontSize: 14, fontWeight: FontWeight.w600),
         ),
-        Expanded(
-          child: ListView(
-            children: [
-              all_cart_cards(),
-              all_cart_cards(),
-              all_cart_cards(),
-              all_cart_cards(),
-              all_cart_cards(),
-              all_cart_cards(),
-            ],
-          ),
-        )
+
+        ///// cart listview.builder code
+
+        Text_btn_item_listTile(),
+
+        Scroll_Sheet(),
       ],
     );
   }

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:redi_pe_prototype/Screens/cart_page.dart';
 import 'package:redi_pe_prototype/Screens/homeScreen.dart';
 import 'package:redi_pe_prototype/all_cart_card.dart';
+import 'package:redi_pe_prototype/scrollable_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,17 +36,11 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: Icon(Icons.shopping_cart),
               ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Cart_Page(),
-                    ));
-              },
+              onTap: () {},
             ),
           ],
         ),
-        body: Cart_Page(),
+        body: all_cart_cards(),
       ),
     );
   }
