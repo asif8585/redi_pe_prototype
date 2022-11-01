@@ -16,25 +16,24 @@ class _cart_ka_item_cardState extends State<cart_ka_item_card> {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 4,
+        itemCount: 18,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(6.0),
             child: Card(
               shadowColor: Colors.green,
               elevation: 10,
               color: Color.fromARGB(255, 233, 249, 216),
               child: Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: const EdgeInsets.all(4.0),
                 child: ListTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        height: 80,
+                        height: 70,
                         child: Image(
-                          image: NetworkImage(
-                              "http://www.pngimagesfree.com/Fruit/Mix-fruit-png/Thumb/Fruits_in_basket_png_pictur.png"),
+                          image: AssetImage("assets/images/Fruits_basket.png"),
                         ),
                       ),
                     ],
@@ -45,11 +44,11 @@ class _cart_ka_item_cardState extends State<cart_ka_item_card> {
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: Text(
                               item_name_text,
                               style: GoogleFonts.aBeeZee(
-                                  color: Color.fromRGBO(15, 40, 48, 8),
+                                  color: Color.fromARGB(248, 36, 81, 28),
                                   fontWeight: FontWeight.w600,
                                   fontSize: 18),
                             ),
@@ -68,20 +67,13 @@ class _cart_ka_item_cardState extends State<cart_ka_item_card> {
                       Column(children: [
                         Card(
                           color: Color.fromARGB(255, 211, 238, 180),
-                          elevation: 10,
+                          elevation: 8,
                           child: Row(
                             children: <Widget>[
-                              Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.delete_outlined,
-                                      size: 26,
-                                      color: Colors.redAccent,
-                                    ),
-                                  ),
-                                ],
+                              IconButton(
+                                color: Color.fromARGB(255, 225, 102, 102),
+                                icon: Icon(Icons.delete),
+                                onPressed: () {},
                               ),
                               IconButton(
                                 onPressed: () {

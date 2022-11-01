@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:redi_pe_prototype/Screens/cart_ka_item_card.dart';
-import 'package:redi_pe_prototype/item_card.dart';
+import 'package:redi_pe_prototype/Screens/3_cart_ka_item_card.dart';
 import 'package:redi_pe_prototype/scrollable_sheet.dart';
 
 class Cart_Page extends StatefulWidget {
@@ -38,8 +37,7 @@ class my_cart extends StatelessWidget {
               radius: 46,
               child: CircleAvatar(
                 backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    "https://www.pngitem.com/pimgs/m/127-1271967_food-cart-indian-street-food-cart-hd-png.png"),
+                backgroundImage: AssetImage("assets/images/logo_cart.png"),
                 radius: 43,
               ),
             ),
@@ -61,7 +59,7 @@ class my_cart extends StatelessWidget {
         ),
         const Divider(
           thickness: 0.8,
-          color: Colors.deepPurpleAccent,
+          color: Colors.green,
           endIndent: 20,
           indent: 20,
         ),
@@ -85,7 +83,7 @@ class my_cart extends StatelessWidget {
 
         //other page of list tile added here
 
-        cart_ka_item_card()
+        cart_ka_item_card(),
       ],
     );
   }
